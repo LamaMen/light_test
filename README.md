@@ -1,16 +1,10 @@
-# light_test
+# Тестовое задание для компании "Лайт Диджитал"
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Особенности реализации:
+* Приложение реализовано согласно предоставленному макету
+* На главной странице использовались Bloc (для логики) и GetIt (для DI).
+* Предусмотрена фильтрация новостей по их типу
+* Учтен случай когда по определенному типу нет новостей (последний тип)
+* На странице с профилем продемонстрировано использование вложенной навигации (учтен случай, когда пользователь на android нажимает системную кнопку назад)
+* По ссылке на новость или мероприятие можно перейти на мою страницу в телеграм )))
+* Собранное в релизной сборке приложение будет загружено в релизы на GitHub
