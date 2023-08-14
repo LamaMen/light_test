@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 /// Colors
 const primary = Color(0xffC60033);
 
+const red = Color.fromRGBO(255, 65, 65, 1);
+
 const secondary = Color(0xffFDF0F4);
 
 const white = Color(0xFfFFFFFF);
@@ -13,17 +15,30 @@ const whiteLight = Color.fromRGBO(242, 243, 245, 0.4);
 
 const black = Color.fromRGBO(33, 33, 34, 1);
 
+const black2 = Color.fromRGBO(51, 48, 55, 1);
+
 const grey = Color.fromRGBO(211, 210, 211, 1);
 
 const grey1 = Color.fromRGBO(119, 138, 155, 1);
 
+const lightText = Color.fromRGBO(109, 120, 133, 1);
+
 const grey2 = Color.fromRGBO(242, 243, 247, 1);
+
+const grey3 = Color.fromRGBO(249, 249, 249, 1);
 
 const grey4 = Color.fromRGBO(245, 245, 245, 1);
 
 /// Fonts
 
-const title = TextStyle(
+const headline = TextStyle(
+  fontFamily: 'Sansation',
+  fontWeight: FontWeight.w700,
+  fontSize: 32,
+  color: black,
+);
+
+const titleFont = TextStyle(
   fontFamily: 'Sansation',
   fontWeight: FontWeight.w700,
   fontSize: 18,

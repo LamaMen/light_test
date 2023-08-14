@@ -5,6 +5,7 @@ import 'package:light_test/core/widgets/buttons.dart';
 import 'package:light_test/core/widgets/loader.dart';
 import 'package:light_test/features/home/bloc/news_bloc.dart';
 import 'package:light_test/features/home/models/news.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsPage extends StatefulWidget {
   const NewsPage({super.key});
@@ -195,7 +196,7 @@ class _FullNewsSheet extends StatelessWidget {
                       const Expanded(
                         child: Text(
                           'Новость',
-                          style: title,
+                          style: titleFont,
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -244,7 +245,10 @@ class _FullNewsSheet extends StatelessWidget {
                               height: 20,
                               child: Image.asset('assets/images/share.png'),
                             ),
-                            onPressed: () {},
+                            onPressed: () async {
+                              final url = Uri.parse(news.link);
+                              await launchUrl(url);
+                            },
                           ),
                         ),
                       ],
@@ -253,7 +257,7 @@ class _FullNewsSheet extends StatelessWidget {
                   const SizedBox(height: 16),
                   Text(
                     news.title,
-                    style: title,
+                    style: titleFont,
                   ),
                   const SizedBox(height: 12),
                   Text(

@@ -6,6 +6,7 @@ import 'package:light_test/core/widgets/dot_indicators.dart';
 import 'package:light_test/core/widgets/loader.dart';
 import 'package:light_test/features/home/bloc/events_bloc.dart';
 import 'package:light_test/features/home/models/event.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EventsPage extends StatefulWidget {
   const EventsPage({super.key});
@@ -129,7 +130,10 @@ class _EventView extends StatelessWidget {
                   height: 24,
                   child: Image.asset('assets/images/share.png'),
                 ),
-                onPressed: () {},
+                onPressed: () async {
+                  final url = Uri.parse(event.link);
+                  await launchUrl(url);
+                },
               )
             ],
           ),
