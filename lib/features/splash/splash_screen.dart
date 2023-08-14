@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:light_test/core/widgets/logo.dart';
 import 'package:light_test/features/login/login_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -11,9 +12,9 @@ class SplashScreen extends StatelessWidget {
       Navigator.pushReplacement(context, LoginScreenRoute());
     });
 
-    return Scaffold(
+    return const Scaffold(
       body: Center(
-        child: Image.asset('assets/images/logo.png'),
+        child: Logo(),
       ),
     );
   }

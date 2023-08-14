@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:light_test/core/fonts_and_colors.dart';
 import 'package:light_test/core/widgets/buttons.dart';
-import 'package:light_test/features/home/home_screen.dart';
+import 'package:light_test/core/widgets/logo.dart';
+import 'package:light_test/features/main/main_screen.dart';
 import 'package:light_test/features/onboarding/onboarding_screen.dart';
 
 class LoginScreenRoute extends CupertinoPageRoute {
@@ -19,31 +20,28 @@ class LoginScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(24, 0, 24, 32),
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
               child: Center(
-                child: Image.asset('assets/images/logo.png'),
+                child: Logo(),
               ),
             ),
             SimpleButton(
               onPressed: () {
-                Navigator.pushReplacement(context, HomeScreenRoute());
+                Navigator.pushReplacement(context, MainScreenRoute());
                 Navigator.push(context, OnboardingScreenRoute());
               },
-              child: const Text('Войти через ЕЛК'),
+              child: const Text('Войти через ЕЛК', style: labelLarge),
             ),
             const SizedBox(height: 16),
             SimpleButton(
               onPressed: () {
-                Navigator.pushReplacement(context, HomeScreenRoute());
+                Navigator.pushReplacement(context, MainScreenRoute());
                 Navigator.push(context, OnboardingScreenRoute());
               },
               color: secondary,
               child: Text(
                 'Войти без авторизации',
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge
-                    ?.copyWith(color: primary),
+                style: labelLarge.copyWith(color: primary),
               ),
             ),
           ],

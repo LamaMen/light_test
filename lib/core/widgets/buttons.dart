@@ -9,37 +9,37 @@ class SimpleButton extends StatelessWidget {
     Color? color,
     bool? isExpand,
     EdgeInsetsGeometry? padding,
+    double? radius,
   })  : color = color ?? primary,
         isExpand = isExpand ?? true,
-        padding = padding ?? const EdgeInsets.fromLTRB(10, 20, 10, 20);
+        padding = padding ?? const EdgeInsets.symmetric(vertical: 18),
+  radius = radius ?? 12;
 
   final Widget child;
   final VoidCallback onPressed;
   final Color color;
   final EdgeInsetsGeometry padding;
   final bool isExpand;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: isExpand ? double.infinity : null,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: _style,
-        child: child,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: isExpand ? double.infinity : null,
+        padding: padding,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          color: color,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            child,
+          ],
+        ),
       ),
-    );
-  }
-
-  ButtonStyle get _style {
-    final border = RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
-    );
-
-    return ButtonStyle(
-      padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(padding),
-      backgroundColor: MaterialStateProperty.all<Color?>(color),
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(border),
     );
   }
 }

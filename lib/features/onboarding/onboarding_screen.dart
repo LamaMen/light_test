@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:light_test/core/fonts_and_colors.dart';
 import 'package:light_test/core/widgets/buttons.dart';
+import 'package:light_test/core/widgets/dot_indicators.dart';
 
 class OnboardingScreenRoute extends CupertinoPageRoute {
   OnboardingScreenRoute() : super(builder: (_) => const OnboardingScreen());
@@ -146,7 +147,7 @@ class _OnboardingView extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 SimpleButton(
-                  child: Text(buttonLabel),
+                  child: Text(buttonLabel, style: labelLarge),
                   onPressed: () {
                     if (!isLast) {
                       onNext();
@@ -156,34 +157,17 @@ class _OnboardingView extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 16),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: List.generate(3, (i) => _DotIndicator(index == i)),
+                DotIndicators(
+                  count: 3,
+                  current: index,
+                  color: primary,
+                  secondary: white,
                 ),
               ],
             ),
           ),
         ),
       ],
-    );
-  }
-}
-
-class _DotIndicator extends StatelessWidget {
-  const _DotIndicator(this.isActive);
-
-  final bool isActive;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      height: 8,
-      width: isActive ? 16 : 8,
-      decoration: BoxDecoration(
-        color: isActive ? primary : white,
-        borderRadius: const BorderRadius.all(Radius.circular(4)),
-      ),
     );
   }
 }
